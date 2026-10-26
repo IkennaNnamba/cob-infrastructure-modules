@@ -1,7 +1,7 @@
-# cob-modules
+# cob-infrastructure-modules
 
 Shared Terraform modules for the COB platform, owned by Platform Engineering.
-Consumed by the `cob-live` repo, always pinned to a released version tag.
+Consumed by the `cob-infrastructure-live` repo, always pinned to a released version tag.
 
 ## Modules
 
@@ -23,7 +23,7 @@ Always pin to a tag, never a branch:
 
 ```hcl
 module "networking" {
-  source = "git::https://github.com/IkennaNnamba/cob-modules.git//modules/networking?ref=v1.0.0"
+  source = "git::https://github.com/IkennaNnamba/cob-infrastructure-modules.git//modules/networking?ref=v1.0.0"
   # inputs...
 }
 ```
