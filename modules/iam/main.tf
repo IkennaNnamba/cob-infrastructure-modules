@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "trust" {
 }
 
 resource "aws_iam_role" "this" {
-  name_prefix        = "${local.name_prefix}-"
+  name_prefix        = "${substr(local.name_prefix, 0, 37)}-"
   assume_role_policy = data.aws_iam_policy_document.trust.json
   tags               = local.common_tags
 }
@@ -41,7 +41,7 @@ data "aws_iam_policy_document" "permissions" {
 }
 
 resource "aws_iam_role_policy" "this" {
-  name_prefix = "${local.name_prefix}-"
+  name_prefix = "${substr(local.name_prefix, 0, 37)}-"
   role        = aws_iam_role.this.id
   policy      = data.aws_iam_policy_document.permissions.json
 }
