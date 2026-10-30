@@ -54,7 +54,7 @@ resource "aws_glue_crawler" "this" {
 }
 
 resource "aws_s3_bucket" "athena_results" {
-  bucket_prefix = "${local.name_prefix}-results-"
+  bucket_prefix = "${substr(local.name_prefix, 0, 28)}-results-"
   force_destroy = true
 
   tags = local.common_tags
